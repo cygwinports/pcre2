@@ -1,0 +1,68 @@
+NAME="pcre2"
+VERSION=10.21
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Perl Compatible Regular Expressions v2"
+DESCRIPTION="The PCRE library is a set of functions that implement regular
+expression pattern matching using the same syntax and semantics as Perl,
+with just a few differences."
+HOMEPAGE="http://www.pcre.org/"
+SRC_URI="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-${VERSION}.tar.bz2 \
+	 ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-${VERSION}.tar.bz2.sig"
+PATCH_URI="
+	fedora/pcre2-10.10-Fix-multilib.patch
+	fedora/pcre2-10.21-Detect-unmatched-closing-parentheses-in-the-pre-scan.patch
+	fedora/pcre2-10.21-Fix-pcre2test-loop-when-a-callout-is-in-an-initial-l.patch
+	fedora/pcre2-10.21-Fix-workspace-overflow-for-deep-nested-parentheses-w.patch
+	fedora/pcre2-10.21-Fix-typo-in-pcre2_study.patch
+	10.21-cygwin-jit.patch
+"
+
+PKG_NAMES="${NAME} libpcre2_8_0 libpcre2_16_0 libpcre2_32_0 libpcre2-posix0 libpcre2-devel libpcre2-doc"
+pcre2_CATEGORY="Text"
+pcre2_SUMMARY="${SUMMARY} utilities"
+pcre2_CONTENTS="
+	--exclude=html --exclude=pcre2-config*
+	usr/bin/*.exe
+	usr/share/doc/
+	usr/share/man/man1/
+"
+libpcre2_8_0_SUMMARY="${SUMMARY} UTF-8 runtime"
+libpcre2_8_0_CONTENTS="usr/bin/cygpcre2-8-0.dll"
+libpcre2_16_0_SUMMARY="${SUMMARY} UTF-16 runtime"
+libpcre2_16_0_CONTENTS="usr/bin/cygpcre2-16-0.dll"
+libpcre2_32_0_SUMMARY="${SUMMARY} UTF-32 runtime"
+libpcre2_32_0_CONTENTS="usr/bin/cygpcre2-32-0.dll"
+libpcre2_posix0_SUMMARY="POSIX regex API using PCRE"
+libpcre2_posix0_CONTENTS="usr/bin/cygpcre2-posix-0.dll"
+libpcre2_devel_SUMMARY="${SUMMARY} library development"
+libpcre2_devel_CONTENTS="
+	usr/bin/pcre2-config
+	usr/include/pcre2*
+	usr/lib/libpcre2*.dll.a
+	usr/lib/pkgconfig/libpcre2*
+	usr/share/doc/${NAME}/pcre2-config.txt
+	usr/share/man/man1/pcre2-config.*
+"
+libpcre2_doc_CATEGORY="Doc"
+libpcre2_doc_SUMMARY="${SUMMARY} API documentation"
+libpcre2_doc_CONTENTS="
+	usr/share/doc/${NAME}/html/
+	usr/share/man/man3/
+"
+
+NO_AUTOHEADER=1
+CYGCONF_ARGS="
+		--enable-jit \
+		--enable-pcre2-8 \
+		--enable-pcre2-16 \
+		--enable-pcre2-32 \
+		--enable-newline-is-anycrlf \
+		--enable-unicode \
+		--enable-pcre2grep-jit \
+		--enable-pcre2grep-libbz2 \
+		--enable-pcre2grep-libz \
+		--disable-pcre2test-libedit \
+		--enable-pcre2test-libreadline \
+		--disable-stack-for-recursion
+"
