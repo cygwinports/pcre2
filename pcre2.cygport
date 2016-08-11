@@ -1,5 +1,5 @@
 NAME="pcre2"
-VERSION=10.21
+VERSION=10.22
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Perl Compatible Regular Expressions v2"
@@ -11,14 +11,10 @@ SRC_URI="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-${VERSION}.
 	 ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-${VERSION}.tar.bz2.sig"
 PATCH_URI="
 	fedora/pcre2-10.10-Fix-multilib.patch
-	fedora/pcre2-10.21-Detect-unmatched-closing-parentheses-in-the-pre-scan.patch
-	fedora/pcre2-10.21-Fix-pcre2test-loop-when-a-callout-is-in-an-initial-l.patch
-	fedora/pcre2-10.21-Fix-workspace-overflow-for-deep-nested-parentheses-w.patch
-	fedora/pcre2-10.21-Fix-typo-in-pcre2_study.patch
-	10.21-cygwin-jit.patch
+	10.22-cygwin-jit.patch
 "
 
-PKG_NAMES="${NAME} libpcre2_8_0 libpcre2_16_0 libpcre2_32_0 libpcre2-posix0 libpcre2-devel libpcre2-doc"
+PKG_NAMES="${NAME} libpcre2_8_0 libpcre2_16_0 libpcre2_32_0 libpcre2-posix1 libpcre2-devel libpcre2-doc"
 pcre2_CATEGORY="Text"
 pcre2_SUMMARY="${SUMMARY} utilities"
 pcre2_CONTENTS="
@@ -33,8 +29,8 @@ libpcre2_16_0_SUMMARY="${SUMMARY} UTF-16 runtime"
 libpcre2_16_0_CONTENTS="usr/bin/cygpcre2-16-0.dll"
 libpcre2_32_0_SUMMARY="${SUMMARY} UTF-32 runtime"
 libpcre2_32_0_CONTENTS="usr/bin/cygpcre2-32-0.dll"
-libpcre2_posix0_SUMMARY="POSIX regex API using PCRE"
-libpcre2_posix0_CONTENTS="usr/bin/cygpcre2-posix-0.dll"
+libpcre2_posix1_SUMMARY="POSIX regex API using PCRE"
+libpcre2_posix1_CONTENTS="usr/bin/cygpcre2-posix-1.dll"
 libpcre2_devel_SUMMARY="${SUMMARY} library development"
 libpcre2_devel_CONTENTS="
 	usr/bin/pcre2-config
