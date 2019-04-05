@@ -1,33 +1,31 @@
 NAME="pcre2"
-VERSION=10.23
-RELEASE=2
+VERSION=10.32
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Perl Compatible Regular Expressions v2"
 DESCRIPTION="The PCRE library is a set of functions that implement regular
 expression pattern matching using the same syntax and semantics as Perl,
 with just a few differences."
-HOMEPAGE="http://www.pcre.org/"
-SRC_URI="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-${VERSION}.tar.bz2 \
-	 ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-${VERSION}.tar.bz2.sig"
+HOMEPAGE="https://www.pcre.org/"
+SRC_URI="https://ftp.pcre.org/pub/pcre/pcre2-${VERSION}.tar.bz2 \
+	 https://ftp.pcre.org/pub/pcre/pcre2-${VERSION}.tar.bz2.sig"
 PATCH_URI="
 	fedora/pcre2-10.10-Fix-multilib.patch
-	fedora/pcre2-10.23-Check-malloc-returns-in-pcre2test.patch
-	fedora/pcre2-10.23-Fix-32-bit-non-UTF-property-test-crash.patch
-	fedora/pcre2-10.23-Fix-crash-for-forward-reference-in-lookbehind-with-P.patch
-	fedora/pcre2-10.23-Fix-pcre2test-bug-for-global-match-with-zero-termina.patch
-	fedora/pcre2-10.23-Close-serialization-file-in-pcre2test-after-any-erro.patch
-	fedora/pcre2-10.23-Fix-memory-leak-when-deserializing-invalid-data-Bugz.patch
-	fedora/pcre2-10.23-Fix-NULL-deference-if-pcre2_callout_enumerate-is-cal.patch
-	fedora/pcre2-10.23-Fix-32-bit-error-buffer-size-bug-in-pcre2test-Bugzil.patch
-	fedora/pcre2-10.23-Previous-patch-was-not-quite-complete.patch
-	fedora/pcre2-10.23-Fix-misbehaving-DFA-match-for-possessively-repeated-.patch
-	fedora/pcre2-10.23-Fix-bug-introduced-at-10.21-use-memory-allocator-fro.patch
-	fedora/pcre2-10.23-Fix-character-type-detection-when-32-bit-and-UCP-are.patch
-	fedora/pcre2-10.23-Correct-an-incorrect-cast.patch
-	10.22-cygwin-jit.patch
+	fedora/pcre2-10.32-Fix-subject-buffer-overread-in-JIT.-Found-by-Yunho-K.patch
+	fedora/pcre2-10.32-Fix-an-xclass-matching-issue-in-JIT.patch
+	fedora/pcre2-10.32-Fix-zero-repeated-subroutine-call-at-start-of-patter.patch
+	fedora/pcre2-10.32-Fix-heap-limit-checking-overflow-bug-in-pcre2_dfa_ma.patch
+	fedora/pcre2-10.32-Fix-non-recognition-of-anchoring-when-preceded-by-MA.patch
+	fedora/pcre2-10.32-JIT-compiler-update.patch
+	fedora/pcre2-10.32-Provide-alternative-POSIX-names.patch
+	fedora/pcre2-10.32-Update-POSIX-wrapper-to-use-macros-in-the-.h-file-bu.patch
+	fedora/pcre2-10.32-Fix-bug-in-VERSION-conditional-test-in-DFA-matching.patch
+	fedora/pcre2-10.32-Fix-two-identical-documentation-typos.patch
+	fedora/pcre2-10.33-RC1-Disable-SSE2-JIT-optimizations-in-x86-CPUs-when-SSE2.patch
+	10.32-cygwin-jit.patch
 "
 
-PKG_NAMES="${NAME} libpcre2_8_0 libpcre2_16_0 libpcre2_32_0 libpcre2-posix1 libpcre2-devel libpcre2-doc"
+PKG_NAMES="${NAME} libpcre2_8_0 libpcre2_16_0 libpcre2_32_0 libpcre2-posix2 libpcre2-devel libpcre2-doc"
 pcre2_CATEGORY="Text"
 pcre2_SUMMARY="${SUMMARY} utilities"
 pcre2_CONTENTS="
@@ -42,8 +40,8 @@ libpcre2_16_0_SUMMARY="${SUMMARY} UTF-16 runtime"
 libpcre2_16_0_CONTENTS="usr/bin/cygpcre2-16-0.dll"
 libpcre2_32_0_SUMMARY="${SUMMARY} UTF-32 runtime"
 libpcre2_32_0_CONTENTS="usr/bin/cygpcre2-32-0.dll"
-libpcre2_posix1_SUMMARY="POSIX regex API using PCRE"
-libpcre2_posix1_CONTENTS="usr/bin/cygpcre2-posix-1.dll"
+libpcre2_posix2_SUMMARY="POSIX regex API using PCRE"
+libpcre2_posix2_CONTENTS="usr/bin/cygpcre2-posix-2.dll"
 libpcre2_devel_SUMMARY="${SUMMARY} library development"
 libpcre2_devel_CONTENTS="
 	usr/bin/pcre2-config
