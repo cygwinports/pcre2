@@ -1,5 +1,5 @@
 NAME="pcre2"
-VERSION=10.32
+VERSION=10.33
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Perl Compatible Regular Expressions v2"
@@ -11,17 +11,17 @@ SRC_URI="https://ftp.pcre.org/pub/pcre/pcre2-${VERSION}.tar.bz2 \
 	 https://ftp.pcre.org/pub/pcre/pcre2-${VERSION}.tar.bz2.sig"
 PATCH_URI="
 	fedora/pcre2-10.10-Fix-multilib.patch
-	fedora/pcre2-10.32-Fix-subject-buffer-overread-in-JIT.-Found-by-Yunho-K.patch
-	fedora/pcre2-10.32-Fix-an-xclass-matching-issue-in-JIT.patch
-	fedora/pcre2-10.32-Fix-zero-repeated-subroutine-call-at-start-of-patter.patch
-	fedora/pcre2-10.32-Fix-heap-limit-checking-overflow-bug-in-pcre2_dfa_ma.patch
-	fedora/pcre2-10.32-Fix-non-recognition-of-anchoring-when-preceded-by-MA.patch
-	fedora/pcre2-10.32-JIT-compiler-update.patch
-	fedora/pcre2-10.32-Provide-alternative-POSIX-names.patch
-	fedora/pcre2-10.32-Update-POSIX-wrapper-to-use-macros-in-the-.h-file-bu.patch
-	fedora/pcre2-10.32-Fix-bug-in-VERSION-conditional-test-in-DFA-matching.patch
-	fedora/pcre2-10.32-Fix-two-identical-documentation-typos.patch
-	fedora/pcre2-10.33-RC1-Disable-SSE2-JIT-optimizations-in-x86-CPUs-when-SSE2.patch
+	fedora/pcre2-10.33-Implement-a-check-on-the-number-of-capturing-parenth.patch
+	fedora/pcre2-10.33-Fix-typo.patch
+	fedora/pcre2-10.33-Fix-crash-when-X-is-used-without-UTF-in-JIT.patch
+	fedora/pcre2-10.33-Forgot-this-file-in-previous-commit.-Fixes-JIT-non-U.patch
+	fedora/pcre2-10.33-Make-pcre2_match-return-MARK-names-from-successful-c.patch
+	fedora/pcre2-10.33-Fix-pcre2grep-o-bug-when-ovector-overflows-add-optio.patch
+	fedora/pcre2-10.33-Don-t-ignore-1-when-it-is-applied-to-a-parenthesized.patch
+	fedora/pcre2-10.33-Fix-partial-matching-bug-in-pcre2_dfa_match.patch
+	fedora/pcre2-10.33-Check-for-integer-overflow-when-computing-lookbehind.patch
+	fedora/pcre2-10.33-Additional-overflow-test.patch
+	fedora/pcre2-10.33-Fix-lookbehind-within-lookahead-within-lookbehind-mi.patch
 	10.32-cygwin-jit.patch
 "
 
